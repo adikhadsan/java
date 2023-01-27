@@ -24,7 +24,6 @@ pipeline{
                   cd /var/lib/jenkins/workspace/${JOB_NAME}/demo
                   ls
                   mvn clean
-// 		  mvn install
               
               
                   '''
