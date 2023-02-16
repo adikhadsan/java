@@ -17,7 +17,7 @@ pipeline{
     
        stage('docker check') {
 	    steps {
-		   docker= sh (script: 'docker --version')
+		   docker= sh (script: 'docker --version',returnStdout: true)
 		   echo "docker version is ${docker}" 
 		    
 	    }
