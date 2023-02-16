@@ -18,7 +18,7 @@ pipeline{
     
         
         stage('maven location') {
-	        when { not { expression { $COND == '' } } }
+	        when { not {  $COND == ''  } }
              steps {
 		     echo 'condition satisfied..'
             
