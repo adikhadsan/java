@@ -3,7 +3,7 @@ pipeline{
      environment {
 		DOCKERHUB_CREDENTIALS = credentials('DockerHub')
 	        GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD')
-	        COND = 
+	        COND = ''
 	}
     stages {
 	  /*  stage('name'){
