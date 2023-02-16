@@ -4,6 +4,7 @@ pipeline{
 		DOCKERHUB_CREDENTIALS = credentials('DockerHub')
 	        GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD')
 	        COND = ''
+	        docker= sh (script: 'docker --version',returnStdout: true)
 	}
     stages {
 	  /*  stage('name'){
@@ -17,7 +18,7 @@ pipeline{
     
        stage('docker check') {
 	    steps {
-		   docker= sh (script: 'docker --version',returnStdout: true)
+		   
 		   echo "docker version is ${docker}" 
 		    
 	    }
