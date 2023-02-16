@@ -18,7 +18,7 @@ pipeline{
     
         
         stage('maven location') {
-		when { not {  {$COND == ''}  } }
+		when { not { environment name: 'COND', value: '' }}
              steps {
 		     echo 'condition satisfied..'
             
