@@ -17,8 +17,8 @@ pipeline{
     
        stage('docker check') {
 	    steps {
-		    sh docker --version > docker
-		    echo $docker
+		    sh docker --version 
+		    
 	    }
        }
         
