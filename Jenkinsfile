@@ -20,7 +20,7 @@ pipeline{
         stage('maven location') {
 	        when { not { expression { $COND == '' } } }
              steps {
-		     sh 'echo 'condition satisfied..''
+		     echo 'condition satisfied..'
             
 //                 sh'''
 //                   pwd
