@@ -17,6 +17,7 @@ pipeline{
 	    }*/
     
        stage('docker check') {
+	       when { environment name: 'docker', value: '' }
 	    steps {
 		   
 		   echo "docker version is ${docker}" 
