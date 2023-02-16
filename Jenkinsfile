@@ -3,6 +3,7 @@ pipeline{
      environment {
 		DOCKERHUB_CREDENTIALS = credentials('DockerHub')
 	        GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD')
+	        COND = 
 	}
     stages {
 	  /*  stage('name'){
@@ -17,18 +18,18 @@ pipeline{
     
         
         stage('maven location') {
-	   when { environment name: 'GIT_PREVIOUS_SUCCESSFUL_COMMIT', value: ''
-}
+	        when { not { expression { $COND == '' } } }
              steps {
+		     sh 'echo 'condition satisfied..''
             
-                sh'''
-                  pwd
-                  cd /var/lib/jenkins/workspace/${JOB_NAME}/demo
-                  ls
-                  mvn clean 
+//                 sh'''
+//                   pwd
+//                   cd /var/lib/jenkins/workspace/${JOB_NAME}/demo
+//                   ls
+//                   mvn clean 
               
               
-                  '''
+//                   '''
              }
          }
 	
