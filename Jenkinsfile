@@ -15,12 +15,12 @@ pipeline{
 		    }
 	    }*/
     
-	    stage('docker check') {
-		    steps {
-			    docker= sh 'docker --version'
-			    echo '$docker'
-		    }
+       stage('docker check') {
+	    steps {
+		    docker= sh 'docker --version'
+		    echo '$docker'
 	    }
+       }
         
         stage('maven location') {
 		when { not { environment name: 'COND', value: '' }}
