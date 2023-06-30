@@ -21,5 +21,14 @@ jobs:
           ls
           cd target
           ls
-      - name: Build with Maven
+      - name: Buid success msg
         run: echo "binary created succesfully!!!!!"
+      - name: Build & push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: 8485012281/war
+         # tags: ${{steps.v1.git_hash}}
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}        
